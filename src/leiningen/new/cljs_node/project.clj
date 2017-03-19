@@ -3,11 +3,13 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-3165"]
-                 [com.cemerick/piggieback "0.2.1"]]
+                 [org.clojure/clojurescript "0.0-3165"]]
 
   :plugins [[lein-cljsbuild "1.0.3"]]
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+
+  :profiles {:dev {:dependencies [[com.cemerick/piggieback "0.2.1"]
+                                  [org.clojure/tools.nrepl "0.2.10"]]
+                   :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
 
   :source-paths ["src"]
 
